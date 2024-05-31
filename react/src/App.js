@@ -56,21 +56,19 @@ function Board({ xNext, squares, onPlay }) {
 }
 
 export default function Game() {
-  const [xNext, setXNext] = useState(true);
   const [history, setHistory] = useState([Array(9).fill(null)]);
   const [currMove, setCurrMove] = useState(0);
+  let xNext = currMove % 2 == 0;
   const currSquares = history[currMove];
 
   function handlePlay(nextSquares) {
     const nextHistory = [...history.slice(0, currMove + 1), nextSquares];
     setHistory(nextHistory);
     setCurrMove(nextHistory.length - 1);
-    setXNext(!xNext);
   }
 
   function jumpTo(nextMove) {
     setCurrMove(nextMove);
-    setXNext(nextMove % 2 === 0);
   }
 
   const moves = history.map((squares, move) => {
