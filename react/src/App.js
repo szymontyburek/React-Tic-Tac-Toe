@@ -6,7 +6,9 @@ function Square({ value, onSquareClick }) {
         width: "25px",
         height: "25px",
         border: "1px solid black",
-        textAlign: "center",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
       }}
       className="square"
       onClick={onSquareClick}
